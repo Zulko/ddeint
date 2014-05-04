@@ -7,9 +7,9 @@ exec(open('ddeint/version.py').read()) # loads __version__
 
 setup(name='ddeint',
       version=__version__,
-      author='$AUTHOR',
-    description='',
+      author='Zulko',
+    description='Scipy-based Delay Differential Equations solver',
     long_description=open('README.rst').read(),
     license='see LICENSE.txt',
-    keywords="",
+    keywords="delay differential equation DDE",
     packages= find_packages(exclude='docs'))
