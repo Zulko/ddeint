@@ -12,4 +12,5 @@ setup(name='ddeint',
     long_description=open('README.rst').read(),
     license='see LICENSE.txt',
     keywords="delay differential equation DDE",
-    packages= find_packages(exclude='docs'))
+    packages= find_packages(exclude='docs'),
+    install_requires= ['numpy','scipy'])
