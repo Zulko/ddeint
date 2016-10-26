@@ -32,8 +32,11 @@ class ddeVar:
         """ Add one new (ti,yi) to the interpolator """
 
         self.itpr.x = np.hstack([self.itpr.x, [t]])
-        Y2 = Y if (Y.size==1) else np.array([Y]).T
-        self.itpr.y = np.hstack([self.itpr.y, Y2])
+        if Y.size == 1:
+            self.itpr.y = np.hstack([self.itpr.y, Y])
+        else:
+            Y2 = np.array([Y], ndmin=2)
+            self.itpr._y = np.vstack([self.itpr._y, Y2])
         self.itpr.fill_value = Y
 
     def __call__(self,t=0):
