@@ -1,4 +1,4 @@
 include *.txt
-include *.rst
+include *.md
 recursive-include examples *.txt *.py
 include ez_setup.py

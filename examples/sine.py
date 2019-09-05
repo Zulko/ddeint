@@ -1,6 +1,6 @@
 """ Reproduces the sine function using a DDE """
 
-from pylab import linspace, sin, subplots, show, pi
+from pylab import linspace, sin, subplots, pi
 from ddeint import ddeint
 
 
@@ -14,4 +14,4 @@ yy = ddeint(model, g, tt)  # Solving
 
 fig, ax = subplots(1, figsize=(4, 4))
 ax.plot(tt, yy)
-show()
+ax.figure.savefig("sine.jpeg")

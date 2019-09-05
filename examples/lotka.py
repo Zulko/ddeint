@@ -1,6 +1,6 @@
 """ Lotka volterra DDE """
 
-from pylab import array, linspace, subplots, show
+from pylab import array, linspace, subplots
 from ddeint import ddeint
 
 
@@ -21,4 +21,4 @@ for d in [0, 0.2]:
     # WE PLOT X AGAINST Y
     ax.plot(yy[:, 0], yy[:, 1], lw=2, label="delay = %.01f" % d)
 
-show()
+ax.figure.savefig("lotka.jpeg")
