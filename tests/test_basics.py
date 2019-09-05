@@ -1,4 +1,4 @@
-from pylab import array, linspace, sin, pi, cos
+from numpy import array, linspace, sin, pi, cos
 from ddeint import ddeint
 
 
