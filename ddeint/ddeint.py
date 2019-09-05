@@ -22,26 +22,30 @@ class ddeVar:
         self.g = g
         self.tc = tc
         # We must fill the interpolator with 2 points minimum
-        self.itpr = scipy.interpolate.interp1d(
+
+        self.interpolator = scipy.interpolate.interp1d(
             np.array([tc - 1, tc]),  # X
             np.array([self.g(tc), self.g(tc)]).T,  # Y
             kind="linear",
             bounds_error=False,
-            fill_value=self.g(tc),
+            fill_value=self.g(tc)
         )
 
     def update(self, t, Y):
         """ Add one new (ti,yi) to the interpolator """
-
-        self.itpr.x = np.hstack([self.itpr.x, [t]])
         Y2 = Y if (Y.size == 1) else np.array([Y]).T
-        self.itpr.y = np.hstack([self.itpr.y, Y2])
-        self.itpr.fill_value = Y
+        self.interpolator = scipy.interpolate.interp1d(
+            np.hstack([self.interpolator.x, [t]]),  # X
+            np.hstack([self.interpolator.y, Y2]),  # Y
+            kind="linear",
+            bounds_error=False,
+            fill_value=Y
+        )
 
     def __call__(self, t=0):
         """ Y(t) will return the instance's value at time t """
 
-        return self.g(t) if (t <= self.tc) else self.itpr(t)
+        return self.g(t) if (t <= self.tc) else self.interpolator(t)
 
 
 class dde(scipy.integrate.ode):
