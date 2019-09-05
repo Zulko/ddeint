@@ -28,6 +28,7 @@ ax.plot(tt, yy)
 ax.figure.savefig("variable_delay.jpeg")
 ```
 
+![screenshot](https://github.com/Zulko/ddeint/raw/master/examples/variable_delay.jpeg)
 
 
 ## Licence
