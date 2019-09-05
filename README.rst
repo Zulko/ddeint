@@ -1,5 +1,7 @@
 ddeint
 =======
+.. image:: https://travis-ci.org/Zulko/ddeint.svg?branch=master
+    :target: https://travis-ci.org/Zulko/ddeint
 
 Scipy-based delay differential equation (DDE) solver. See the docstrings and examples for more infos.
 
