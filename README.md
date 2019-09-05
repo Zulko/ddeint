@@ -62,7 +62,7 @@ ax.figure.savefig("lotka.jpeg")
 
 Public domain. Everyone is welcome to contribute !
 
-##Installation
+## Installation
 
 ddeint can be installed by unzipping the source code in one directory and using this command: ::
 
