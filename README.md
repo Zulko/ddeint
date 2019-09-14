@@ -11,6 +11,9 @@ Scipy-based delay differential equation (DDE) solver. See the docstrings and exa
 from pylab import cos, linspace, subplots
 from ddeint import ddeint
 
+# We solve the following system:
+# Y(t) = 1 for t < 0
+# dY/dt = -Y(t - 3cos(t)**2) for t > 0
 
 def model(Y, t):
     return -Y(t - 3 * cos(Y(t)) ** 2)
