@@ -15,13 +15,11 @@ from ddeint import ddeint
 # Y(t) = 1 for t < 0
 # dY/dt = -Y(t - 3cos(t)**2) for t > 0
 
-def model(Y, t):
-    return -Y(t - 3 * cos(Y(t)) ** 2)
-
-
 def values_before_zero(t):
     return 1
 
+def model(Y, t):
+    return -Y(t - 3 * cos(Y(t)) ** 2)
 
 tt = linspace(0, 30, 2000)
 yy = ddeint(model, values_before_zero, tt)
