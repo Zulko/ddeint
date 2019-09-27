@@ -35,6 +35,12 @@ ax.figure.savefig("variable_delay.jpeg")
 from pylab import array, linspace, subplots
 from ddeint import ddeint
 
+# We solve the following system:
+# X(t) = 1 (t < 0)
+# Y(t) = 2 (t < 0)
+# dX/dt = X * (1 - Y(t-d)) / 2
+# dY/dt = -Y * (1 - X(t-d)) / 2
+
 
 def model(Y, t, d):
     x, y = Y(t)
