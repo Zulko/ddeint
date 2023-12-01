@@ -142,4 +142,6 @@ def ddeint(func, g, tt, fargs=None):
     dde_.set_initial_value(ddeVar(g, tt[0]))
     dde_.set_f_params(fargs if fargs else [])
     results = [dde_.integrate(dde_.t + dt) for dt in np.diff(tt)]
-    return np.array([g(tt[0])] + results)
+    initial_value = g(tt[0]) if isinstance(g(tt[0]), (list, tuple, np.ndarray)) else np.array([g(tt[0])])
+    results.insert(0, initial_value)
+    return np.stack(results)
