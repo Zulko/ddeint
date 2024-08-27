@@ -1,0 +1,25 @@
+[project]
+name = "ddeint"
+version = "0.4.0"
+description = "Scipy-based Delay Differential Equations solver"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "Zulko"}]
+license = {text = "CCO"}
+dependencies = [
+    "numpy", "scipy"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/zulko/ddeint"
+Changelog = "https://github.com/zulko/ddeint/releases"
+Issues = "https://github.com/zulko/ddeint/issues"
+CI = "https://github.com/zulko/ddeint/actions"
+
+
+[project.optional-dependencies]
+test = ["pytest"]
