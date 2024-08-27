@@ -1,6 +1,10 @@
 # ddeint
 
-[![Build Status](https://travis-ci.org/Zulko/ddeint.svg?branch=master)](https://travis-ci.org/Zulko/ddeint)
+[![PyPI](https://img.shields.io/pypi/v/ddeint.svg)](https://pypi.org/project/ddeint/)
+[![Tests](https://github.com/zulko/ddeint/actions/workflows/test.yml/badge.svg)](https://github.com/zulko/ddeint/actions/workflows/test.yml)
+[![Changelog](https://img.shields.io/github/v/release/zulko/ddeint?include_prereleases&label=changelog)](https://github.com/zulko/ddeint/releases)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/zulko/ddeint/blob/main/LICENSE)
+
 
 Scipy-based delay differential equation (DDE) solver. See the docstrings and examples for more infos.
 

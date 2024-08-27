@@ -123,25 +123,29 @@ def ddeint(func, g, tt, fargs=None):
     
     The delay ``d`` is a tunable parameter of the model.
 
-    >>> import numpy as np
-    >>> from ddeint import ddeint
-    >>> 
-    >>> def model(XY,t,d):
-    >>>     x, y = XY(t)
-    >>>     xd, yd = XY(t-d)
-    >>>     return np.array([0.5*x*(1-yd), -0.5*y*(1-xd)])
-    >>> 
-    >>> g = lambda t : np.array([1+t,2-t]) # 'history' at t<0
-    >>> tt = np.linspace(0,30,20000) # times for integration
-    >>> d = 0.5 # set parameter d 
-    >>> yy = ddeint(model,g,tt,fargs=(d,)) # solve the DDE !
-     
+    .. code-block:: python
+    
+        import numpy as np
+        from ddeint import ddeint
+    
+        def model(XY,t,d):
+            x, y = XY(t)
+            xd, yd = XY(t-d)
+            return np.array([0.5*x*(1-yd), -0.5*y*(1-xd)])
+    
+        g = lambda t : np.array([1+t,2-t]) # 'history' at t<0
+        tt = np.linspace(0,30,20000) # times for integration
+        d = 0.5 # set parameter d 
+        yy = ddeint(model,g,tt,fargs=(d,)) # solve the DDE !
     """
 
     dde_ = dde(func)
     dde_.set_initial_value(ddeVar(g, tt[0]))
     dde_.set_f_params(fargs if fargs else [])
     results = [dde_.integrate(dde_.t + dt) for dt in np.diff(tt)]
-    initial_value = g(tt[0]) if isinstance(g(tt[0]), (list, tuple, np.ndarray)) else np.array([g(tt[0])])
+    if isinstance(g(tt[0]), (list, tuple, np.ndarray)):
+        initial_value = g(tt[0])
+    else:
+        initial_value = np.array([g(tt[0])])
     results.insert(0, initial_value)
     return np.stack(results)
