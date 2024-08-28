@@ -74,10 +74,14 @@ Public domain. Everyone is welcome to contribute !
 
 ## Installation
 
-ddeint can be installed by unzipping the source code in one directory and using this command: ::
+Install with pip:
 
-    (sudo) python setup.py install
+```
+pip install ddeint 
+```
 
-You can also install it directly from the Python Package Index with this command: ::
+Or install locally in dev mode with:
 
-    (sudo) pip install ddeint 
+```
+pip install -e . 
+```
